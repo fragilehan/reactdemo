@@ -10,6 +10,8 @@
     "react-dnd": "^2.5.3",
     "react-dnd-html5-backend": "^1.0.0",
     "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
     "react-transition-group": "^2.2.0",
     "whatwg-fetch": "^2.0.3"

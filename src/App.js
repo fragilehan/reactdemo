@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import KanbanBoardContainer from './KanbanBoardContainer';
+import KanbanBoard from './KanbanBoard';
 import './App.css';
+import createBrowerHistory from 'history/createBrowserHistory';
+import NewCard from './NewCard';
+import {Router,Route} from 'react-router';
 
 let cardsList = [
 {
@@ -42,7 +46,10 @@ let cardsList = [
 class App extends Component {
   render() {
     return (
-      <KanbanBoardContainer />
+     <Router history={createBrowerHistory()}>
+        <Route component = {KanbanBoardContainer} />
+
+     </Router>
     );
   }
 }

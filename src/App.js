@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import KanbanBoardContainer from './KanbanBoardContainer';
-import KanbanBoard from './KanbanBoard';
+import KanbanBoardContainer from './components/KanbanBoardContainer';
+import KanbanBoard from './components/KanbanBoard';
 import './App.css';
 import createBrowerHistory from 'history/createBrowserHistory';
-import NewCard from './NewCard';
+import NewCard from './components/NewCard';
 import {Router,Route} from 'react-router';
 
 let cardsList = [

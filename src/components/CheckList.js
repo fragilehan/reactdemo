@@ -1,0 +1,43 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import TaskActionCreators from '../actions/TaskActionCreators'
+class CheckList extends Component{
+	checkInputKeyPress(evt){
+		if(evt.key === 'Enter'){
+			let newTask = {id:Date.now(),name:evt.target.value,done:false}
+			TaskActionCreators.addTask(this.props.cardId,newTask);
+			evt.target.value='';
+		}
+	}
+	render(){
+		let tasks = this.props.tasks.map((task,taskIndex)=>(
+			<li className="CheckList_task" key={task.id}>
+			 <input type="checkbox" defaultChecked={task.done} onChange = {
+			 	TaskActionCreators.toggleTask.bind(null,this.props.cardId,task,taskIndex)
+			 }/>
+			  {task.name}
+			 <a href="#" className="CheckList_task--remove" onClick = {
+			 	TaskActionCreators.deleteTask.bind(null, this.props.cardId,task,taskIndex)
+			 }/>
+			</li>
+			));
+		return(
+		<div className = "checklist">
+		<ul>
+		{tasks}
+		</ul>
+		<input  type="text"
+				className ="checklist--add--task"
+				placeholder = "type then hit enter to add a task"
+				onKeyPress = {this.checkInputKeyPress.bind(this)}
+				 />
+				
+		</div>
+		)
+	}
+}
+CheckList.propTypes = {
+	cardId: PropTypes.number,
+	tasks: PropTypes.arrayOf(PropTypes.object)
+}
+export default CheckList;
